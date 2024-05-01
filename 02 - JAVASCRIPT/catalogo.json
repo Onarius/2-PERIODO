@@ -1,0 +1,14 @@
+{
+    "nome": "Bolo de Chocolate",
+    "ingredientes": [
+        "200g de chocolate meio amargo",
+        "1 xícara de farinha de trigo",
+        "1 xícara de açúcar",
+        "3 ovos"
+    ],
+    "modo_de_preparo": [
+        "Derreta o chocolate em banho-maria.",
+        "Em uma tigela, misture a farinha de trigo e o açúcar.",
+        "Adicione os ovos e o chocolate derretido à mistura."
+    ]
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenando Valores</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="titulo"><h1>Ordenando Valores</h1><hr/></div>
+    <div>
+        <input type="number" name="valor" id="valor">
+        <input type="button" class="btn btn-primary btn-sm" value="Adicionar" onclick="addValueAndDisplayList('valores', 'valor', 'lista_valores')">
+        <hr/>
+    </div>
+    <div>
+        <select name="escolha" id="tp_sort">
+            <option value="bubble">Bubble Sort</option>
+            <option value="quick">Quick Sort</option>
+        </select>
+        <input type="button" class="btn btn-primary btn-sm" value="Ordenar" id="btn_ordenar">
+        <input type="button" class="btn btn-primary btn-sm" value="Misturar" onclick="misturar('lista_valores')">
+    </div>
+    <div id="resultado">
+        <ul id="lista_valores">
+
+        </ul>
+
+    </div>
+
+
+
+<script>
+    let valores = [];
+    const addValueAndDisplayList = (array, inputId, listId) => {
+        const valor = document.getElementById(inputId).value;
+        if (!isNaN(valor) && valor.trim() !== '') {
+            valores.push(valor);
+            const listElement = document.getElementById(listId);
+            listElement.innerHTML = ''; // Limpa a lista atual
+            valores.forEach((item) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = item;
+                listElement.appendChild(listItem);
+            });
+        }
+    };
+    document.getElementById('btn_ordenar').addEventListener('click', function() {
+    const valorSelecionado = document.getElementById('tp_sort').value;
+
+    switch (valorSelecionado) {
+        case 'bubble':
+        // Código para a opção 1
+            bubbleSort('lista_valores');
+            console.log('Executando Bubble Sort');
+        break;
+        case 'quick':
+        // Código para a opção 2
+            quickSort('lista_valores');
+            console.log('Executando Quick Sort');
+        break;
+        
+        default:
+        console.log('Opção não reconhecida');
+    }
+});
+
+</script>
+<script src="ordenando.js"></script>
+</body>
+</html>
